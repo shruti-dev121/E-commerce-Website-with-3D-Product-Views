@@ -1,0 +1,17 @@
+[Top Bar]
+[Header: Logo | Search | Cart]
+[Nav Bar]
+
+(Home Page)
+---------------------------------
+| Hero Banner / Video + Image   |
+---------------------------------
+| Featured Products (Grid)      |
+---------------------------------
+| Category Highlights           |
+---------------------------------
+| Promotional Banner            |
+---------------------------------
+| New Arrivals                  |
+---------------------------------
+| Footer                        |

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+      button {
+        padding: 6px 10px;
+        border: none;
+        cursor: pointer;
+        background: black;
+        color: white;
+        border-radius: 5px;
+      }
+      .checkout {
+        margin-top: 20px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Your Cart</h2>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="checkout">
+      <h3 id="grand-total">Grand Total: ₹0</h3>
+      <button>Proceed to Checkout</button>
+    </div>
+
+    <script>
+      function loadCart() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let tbody = document.querySelector("#cart-table tbody");
+        tbody.innerHTML = "";
+
+        let grandTotal = 0;
+
+        cart.forEach((item, index) => {
+          let row = document.createElement("tr");
+
+          let total = item.price * item.qty;
+          grandTotal += total;
+
+          row.innerHTML = `
+            <td>${item.name}</td>
+            <td>₹${item.price}</td>
+            <td>
+              <button onclick="updateQty(${index}, -1)">-</button>
+              ${item.qty}
+              <button onclick="updateQty(${index}, 1)">+</button>
+            </td>
+            <td>₹${total}</td>
+            <td><button onclick="removeItem(${index})">Remove</button></td>
+          `;
+
+          tbody.appendChild(row);
+        });
+
+        document.getElementById("grand-total").textContent =
+          "Grand Total: ₹" + grandTotal;
+      }
+
+      function updateQty(index, change) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart[index].qty += change;
+
+        if (cart[index].qty <= 0) {
+          cart.splice(index, 1); // remove if qty is 0
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCart();
+      }
+
+      function removeItem(index) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCart();
+      }
+
+      // Load cart on page load
+      loadCart();
+    </script>
+  </body>
+</html>

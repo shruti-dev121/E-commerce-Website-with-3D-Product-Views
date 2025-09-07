@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>3D Product View</title>
+    <!-- Import Google model-viewer -->
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #f4f4f4;
+        margin: 0;
+      }
+      h2 {
+        margin-bottom: 20px;
+      }
+      model-viewer {
+        width: 600px;
+        height: 400px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+      }
+      .back-btn {
+        margin-top: 20px;
+        padding: 10px 15px;
+        background: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>3D Product View</h2>
+
+    <!-- 3D Viewer -->
+    <model-viewer
+      src="laptop.glb"
+      alt="Laptop 3D"
+      auto-rotate
+      camera-controls
+      ar
+    >
+    </model-viewer>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">
+      ⬅ Back to Store
+    </button>
+  </body>
+</html>

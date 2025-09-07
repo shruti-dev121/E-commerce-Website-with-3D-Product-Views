@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electro Store - Home</title>
+    <style>
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: #f8f8f8;
+        color: #333;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background: #004080;
+        color: white;
+        padding: 8px 20px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+      }
+
+      .top-links a {
+        color: white;
+        margin-left: 15px;
+        text-decoration: none;
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: bold;
+        color: #e63946;
+      }
+
+      .search-box {
+        display: flex;
+        width: 50%;
+      }
+
+      .search-box select,
+      .search-box input,
+      .search-box button {
+        padding: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      .search-box select {
+        border-right: none;
+      }
+
+      .search-box input {
+        flex: 1;
+        border-left: none;
+        border-right: none;
+      }
+
+      .search-box button {
+        background: #ff4d6d;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .cart {
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* Menu */
+      .menu {
+        display: flex;
+        justify-content: center;
+        background: #000;
+      }
+
+      .menu a {
+        color: white;
+        padding: 12px 20px;
+        text-decoration: none;
+        transition: background 0.3s;
+      }
+
+      .menu a:hover {
+        background: #e63946;
+      }
+
+      /* Hero Section with Video */
+      .hero {
+        position: relative;
+        height: 80vh;
+        overflow: hidden;
+      }
+
+      .hero video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        color: white;
+      }
+
+      .hero-text h4 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      .hero-text span {
+        color: #4da6ff;
+      }
+
+      .hero-text h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+      }
+
+      .hero-text button {
+        padding: 12px 25px;
+        background: #004080;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .hero-text button:hover {
+        background: #ff4d6d;
+      }
+
+      /* Categories */
+      .categories {
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .category {
+        background: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .category:hover {
+        transform: translateY(-5px);
+      }
+
+      .category img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin-bottom: 10px;
+      }
+
+      /* Featured Products */
+      .products {
+        padding: 40px 20px;
+      }
+
+      .products h2 {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #004080;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .product-card {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+        margin-bottom: 10px;
+      }
+
+      .product-card h3 {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+
+      .product-card p {
+        color: #e63946;
+        font-weight: bold;
+      }
+
+      .product-card button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        border: none;
+        background: #004080;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .product-card button:hover {
+        background: #ff4d6d;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 15px;
+        background: #000;
+        color: white;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Offer Bar -->
+    <div class="top-bar">
+      <span>Offer Zone Top Deals & Discounts</span>
+      <div class="top-links">
+        <a href="#">Select Location</a>
+        <a href="#">Track Order</a>
+        <a href="tel:0012345678">001 234 5678</a>
+        <a href="#">Log In</a>
+        <a href="#">Register</a>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="logo">Electro Store</div>
+      <div class="search-box">
+        <select>
+          <option>All Categories</option>
+          <option>Electronics</option>
+          <option>Appliances</option>
+        </select>
+        <input type="text" placeholder="Search" />
+        <button>Search</button>
+      </div>
+      <div class="cart">🛒</div>
+    </header>
+
+    <!-- Menu -->
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="index1.html">About Us</a>
+      <a href="index.html">New Arrivals</a>
+      <a href="cartpage.html">cartpage</a>
+      <a href="checkoutpage.html">Checkout</a>
+    </nav>
+
+    <!-- Hero Video Banner -->
+    <section class="hero">
+      <video autoplay muted loop>
+        <source src="video1.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-text">
+        <h4>advanced <span>Wireless</span> earbuds</h4>
+        <h1>BEST <span>HEADPHONE</span></h1>
+        <button>Shop Now</button>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+      <div class="category">
+        <img src="lap.jpeg" />
+        <h4>Laptops</h4>
+      </div>
+      <div class="category">
+        <img src="p8.png" />
+        <h4>Mobiles</h4>
+      </div>
+      <div class="category">
+        <img src="p1.png" />
+        <h4>Televisions</h4>
+      </div>
+      <div class="category">
+        <img src="p3.png" />
+        <h4>Headphones</h4>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="p17.jpg" alt="Headphones" />
+          <h3>Wireless Headphones</h3>
+          <p>$59.99</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="p12.png" alt="Laptop" />
+          <h3>Gaming Laptop</h3>
+          <p>$999.99</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="p10.png" alt="Phone" />
+          <h3>Smartphone</h3>
+          <p>$499.99</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="p9.png" alt="TV" />
+          <h3>Smart TV</h3>
+          <p>$799.99</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Electro Store | All Rights Reserved</p>
+    </footer>
+  </body>
+</html>
