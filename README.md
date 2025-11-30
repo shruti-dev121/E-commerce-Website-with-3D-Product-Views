@@ -30,6 +30,11 @@ Backend (payment, database, authentication) is not implemented.
 Can be extended to support multiple products in the future.
 
 <img width="1892" height="987" alt="image" src="https://github.com/user-attachments/assets/7c14ea0e-57b4-488e-a3bc-55b89319d60a" />
+<img width="1901" height="875" alt="image" src="https://github.com/user-attachments/assets/cdc3947b-26d2-4b3c-ab4f-232e06f6523b" />
+<img width="1900" height="874" alt="image" src="https://github.com/user-attachments/assets/f5e436ce-faf7-4cf7-aa2e-c86a4ef67aef" />
+<img width="1900" height="850" alt="image" src="https://github.com/user-attachments/assets/3b525cbc-c42c-4b0a-9a11-cf81d329c437" />
+
+
 
 
 
